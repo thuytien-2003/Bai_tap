@@ -1,0 +1,70 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    padding: auto;
+}
+
+.container {
+    width: 100%;
+    margin: auto;
+}
+
+.row {
+    align-items: center;
+    margin-bottom: 15px;
+    display: flex;
+}
+
+.home {
+    height: 50px;
+    line-height: 30px;
+    color: white;
+    background-color: #31C8DD;
+    justify-content: center;
+    align-items: center;
+}
+
+.about {
+    height: 50px;
+    line-height: 30px;
+    color: white;
+    background-color: #f75354;
+    justify-content: center;
+    align-items: center;
+}
+
+.feature {
+    height: 50px;
+    line-height: 30px;
+    color: white;
+    background-color: #51d567;
+    justify-content: center;
+    align-items: center;
+}
+
+.service {
+    height: 50px;
+    line-height: 30px;
+    color: white;
+    background-color: #fcd518;
+    justify-content: center;
+    align-items: center;
+}
+
+.gallery {
+    height: 50px;
+    line-height: 30px;
+    color: white;
+    background-color: #f78153;
+    justify-content: center;
+    align-items: center;
+}
+
+.blog {
+    height: 50px;
+    line-height: 30px;
+    color: white;
+    background-color: #fe06e8;
+    justify-content: center;
+    align-items: center;
+}

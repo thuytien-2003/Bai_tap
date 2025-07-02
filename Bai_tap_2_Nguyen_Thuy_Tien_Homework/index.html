@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+    <div class="container">
+        <div class="dashboard">
+            <div class="header">
+                <h1>Dashboard</h1>
+                <div id="clock">--:--:--</div>
+                <div id="greeting">Good day</div>
+                <button id="theme-toggle">🌙</button>
+            </div>
+
+            <!-- To-Do List -->
+            <section class="todo-section">
+                <h2>To-Do List</h2>
+                <input id="task-input" type="text" placeholder="Enter a task" />
+                <button id="add-task">Add Task</button>
+                <div class="filters">
+                    <button data-filter="all">All</button>
+                    <button data-filter="completed">Completed</button>
+                    <button data-filter="incomplete">Incomplete</button>
+                </div>
+                <ul id="task-list"></ul>
+            </section>
+
+            <!-- Sticky Notes -->
+            <section class="notes-section">
+                <h2>Sticky Notes</h2>
+                <input id="note-input" type="text" placeholder="Write a note..." />
+                <button id="add-note">Add Note</button>
+                <div id="notes-container"></div>
+            </section>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

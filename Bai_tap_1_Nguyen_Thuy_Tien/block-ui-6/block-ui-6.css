@@ -1,0 +1,88 @@
+body {
+    margin: 0;
+    background: #fff;
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    padding: 50px;
+}
+
+.card-container {
+    display: flex;
+    gap: 20px;
+}
+
+.card {
+    position: relative;
+    width: 200px;
+    height: 250px;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.line {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 5px;
+    width: 100%;
+}
+
+.facebook .line {
+    background-color: #578ED2;
+}
+
+.twitter .line {
+    background-color: #2EB3C8;
+}
+
+.google .line {
+    background-color: #DE7248;
+}
+
+.pinterest .line {
+    background-color: #E14B4B;
+}
+
+.icon {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    font-size: 44px;
+    color: white;
+}
+
+.content {
+    align-self: flex-start;
+}
+
+.content h2 {
+    margin: 0;
+    font-size: 20px;
+}
+
+.content p {
+    margin: 5px 0 0;
+    font-size: 14px;
+}
+
+.facebook {
+    background-color: #619BEC;
+}
+
+.twitter {
+    background-color: #31C8DD;
+}
+
+.google {
+    background-color: #F78153;
+}
+
+.pinterest {
+    background-color: #F75354;
+}

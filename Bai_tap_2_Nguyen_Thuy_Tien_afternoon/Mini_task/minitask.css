@@ -1,0 +1,22 @@
+.box {
+    width: 100px;
+    height: 100px;
+    background: lightgray;
+    margin-top: 10px;
+    transition: background-color 1s;
+}
+
+.hoverBox {
+    width: 100px;
+    height: 100px;
+    background: #ddd;
+    margin-top: 10px;
+}
+
+.hoverBox:hover {
+    background: #ca1010;
+}
+
+.highlight {
+    background: yellow;
+}

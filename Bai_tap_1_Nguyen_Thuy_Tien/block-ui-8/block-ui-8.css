@@ -1,0 +1,111 @@
+body {
+    background-color: #f0f6fb;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px 20px;
+    display: flex;
+    justify-content: center;
+}
+
+.skill-wrapper {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.skill-box {
+    background: #fff;
+    padding: 30px 40px;
+    border-radius: 4px;
+    border: 1px solid #eee;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08), 0 1px 2px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px;
+}
+
+.skill {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 20px;
+}
+
+.label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    min-width: 100px;
+}
+
+.icon {
+    width: 30px;
+    height: 30px;
+    font-size: 16px;
+    color: white;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.html-icon {
+    background-color: #51D568;
+}
+
+.css-icon {
+    background-color: #F85151;
+}
+
+.php-icon {
+    background-color: #33C8E2;
+}
+
+.java-icon {
+    background-color: #F7D316;
+}
+
+.dotnet-icon {
+    background-color: #C777E5;
+}
+
+.bar {
+    width: 100%;
+    background-color: #eee;
+    height: 10px;
+    overflow: hidden;
+}
+
+.progress {
+    height: 100%;
+}
+
+.html {
+    width: 65%;
+    background-color: #51D567;
+}
+
+.css {
+    width: 50%;
+    background-color: #FA5253;
+}
+
+.php {
+    width: 40%;
+    background-color: #33C9DC;
+}
+
+.java {
+    width: 70%;
+    background-color: #FCD518;
+}
+
+.dotnet {
+    width: 45%;
+    background-color: #CC79E9;
+}

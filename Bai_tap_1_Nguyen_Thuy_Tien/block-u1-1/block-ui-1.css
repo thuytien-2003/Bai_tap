@@ -1,0 +1,113 @@
+body {
+    font-family: Arial, sans-serif;
+    background: #fff;
+    padding: 40px;
+}
+
+.container {
+    width: 500px;
+    margin: 0 auto;
+}
+
+.row {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.row.cyan .label {
+    background-color: #2DB8CD;
+    /* màu đậm */
+}
+
+.row.cyan .progress-fill {
+    background-color: #31C8DD;
+    /* màu nhạt hơn */
+}
+
+.row.green .label {
+    background-color: #4AC25E;
+    /* màu đậm */
+}
+
+.row.green .progress-fill {
+    background-color: #51D567;
+    /* màu nhạt hơn */
+}
+
+.row.yellow .label {
+    background-color: #E9C318;
+    /* màu đậm */
+}
+
+.row.yellow .progress-fill {
+    background-color: #FCD518
+    /* màu nhạt hơn */
+}
+
+.row.purple .label {
+    background-color: #BB70D5;
+    /* màu đậm */
+}
+
+.row.purple .progress-fill {
+    background-color: #CB79E7;
+    /* màu nhạt hơn */
+}
+
+.row.pink .label {
+    background-color: #EB59D6;
+    /* màu đậm */
+}
+
+.row.pink .progress-fill {
+    background-color: #FE60E8;
+    /* màu nhạt hơn */
+}
+
+.row.blue .label {
+    background-color: #5890DA;
+    /* màu đậm */
+}
+
+.row.blue .progress-fill {
+    background-color: #619BEC;
+    /* màu nhạt hơn */
+}
+
+.label {
+    width: 120px;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 13px;
+    background-color: #e54d4c;
+    /* màu nền đậm */
+    color: white;
+    /* chữ trắng */
+    height: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding-right: 10px;
+}
+
+.progress-bar {
+    flex: 1;
+    height: 45px;
+    background: #f0f0f0;
+    border-radius: 0;
+    overflow: hidden;
+    box-shadow: inset 0 0 2px rgba(0, 0, 0, 0.1);
+}
+
+.progress-fill {
+    height: 100%;
+    background-color: #f75354;
+    color: white;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding-left: 10px;
+    box-sizing: border-box;
+}
