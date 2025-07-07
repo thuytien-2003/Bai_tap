@@ -1,0 +1,17 @@
+
+body {
+  margin: 0;
+  padding: 0;
+  justify-content: center; 
+  align-items: center;     
+  font-family: sans-serif;
+}
+
+.centerBox {
+  text-align: left; 
+  padding: 30px;
+}
+
+.button{
+    background-color: #c0baba;
+}

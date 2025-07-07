@@ -1,0 +1,86 @@
+.wrapper {
+  padding: 24px;
+  gap: 20px;
+}
+
+.title {
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.sliderContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0; /* Không có khoảng cách giữa nút và ảnh */
+}
+
+.mainImage {
+  width: 320px;
+  height: 240px;
+  object-fit: contain;
+  background: #ffffff;
+  border-radius: 4px;
+  display: inline-block;
+  margin: 0;
+}
+
+.prevButton,
+.nextButton {
+  background: #e5e7eb;      /* Màu xám nhạt */
+  border: none;
+  width: 30px;      /* tăng chiều rộng */
+  height: 40px;
+  cursor: pointer;
+  padding: 6px 10px;        /* Tăng padding cho dễ bấm */
+  outline: none;
+  box-shadow: none;
+  display: flex;
+  align-items: center;
+  border-radius: 5px;       /* Bo tròn nếu muốn nút tròn */
+  margin: 0 4px;
+  transition: background 0.2s;
+}
+
+.prevButton:hover,
+.nextButton:hover {
+  background: #d1d5db;      /* Màu xám đậm hơn khi hover */
+}
+
+
+.prevButton {
+  left: 10px;
+}
+
+.nextButton {
+  right: 10px;
+}
+
+.thumbnails {
+  display: flex;
+  gap: 10px;
+  margin-top: 20px;
+  justify-content: center;
+}
+
+.thumbnail {
+  width: 60px;
+  height: 60px;
+  padding: 6px;
+  border: 1.5px solid #d1d5db;
+  cursor: pointer;
+  opacity: 0.6;
+  box-sizing: border-box;
+  transition: border 0.2s, opacity 0.2s;
+}
+
+.thumbnail:hover {
+  opacity: 1;
+}
+
+.activeThumbnail {
+  border: 1px solid #e11d48; /* Viền đỏ khi được chọn */
+  opacity: 1;
+}

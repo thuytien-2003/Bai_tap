@@ -1,0 +1,55 @@
+.wrapper {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: sans-serif;
+  margin-top: 50px; /* Thêm khoảng cách lùi xuống */
+}
+
+.label {
+  font-weight: 500;
+}
+
+.options {
+  display: flex;
+  gap: 10px;
+}
+
+.colorBtn {
+  position: relative;
+  border: 1px solid #ccc;
+  padding: 12px 24px;
+  background-color: white;
+  cursor: pointer;
+  font-size: 18px;
+  border-radius: 4px;
+  transition: all 0.2s ease;
+}
+
+.colorBtn:hover {
+  border-color: #999;
+}
+
+.colorBtn:active,
+.colorBtn:focus,
+.active {
+  border: 2px solid orange !important;
+  color: orange !important;
+  font-weight: bold;
+  outline: none;
+}
+
+.check {
+  position: absolute;
+  bottom: -6px;
+  right: -6px;
+  font-size: 10px;
+  background: orange;
+  color: white;
+  border-radius: 50%;
+  width: 14px;
+  height: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
