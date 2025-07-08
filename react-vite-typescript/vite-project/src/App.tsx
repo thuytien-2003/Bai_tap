@@ -41,13 +41,13 @@
 //      <div className='panel'>
 //        <SearchInput leftIcon={<Search size={20} />} placeholder="" />
 //        <SearchInput leftIcon={<Search size={20} />} placeholder="Search" />
-//        <SearchInput leftIcon={<Search size={20} />} placeholder="Textfield" bold />      
+//        <SearchInput leftIcon={<Search size={20} />} placeholder="Textfield" bold />
 //        <SearchInput leftIcon={<Search size={20} />} placeholder="Search in the web" rightIcon={<ListFilter size={20} color='black'/>} />
 //        <SearchInput leftIcon={<Search size={20} />} placeholder="Search crypto" rightIcon={<SlidersHorizontal size={20} color='black'/>} />
 //        <SearchInput placeholder="Phone number" rightIcon={<FaPhone size={18} color='black'/>} placeholderColor="#ccc" rightIconBg="#d2fbe3" />
 //        <SearchInput leftIcon={<Search size={20} />} placeholder="Search in the web" rightIcon={<ListFilter size={20} color='black'/>} rightIconBg="#fce96a" />
-//      </div> 
-      
+//      </div>
+
 //      <div className="contactPanel">
 //        <Contact />
 //      </div>*/}
@@ -145,13 +145,134 @@
 //export default App;
 
 //import Customer from './Lesson6/CRUD/components';
-import AppWeather from './Lesson6/Homework/AppWeather';
+//import AppWeather from './Lesson6/Homework/AppWeather';
 
-export default function App() {
+//export default function App() {
+//  return (
+//    <div>
+//      {/*<Customer />*/}
+//      <AppWeather />
+//    </div>
+//  )
+//}
+
+//import Header from './Lesson7/Afternoon/components/Header';
+//import HomePage from './Lesson7/Afternoon/pages/HomePage';
+//import BlogPage from './Lesson7/Afternoon/pages/BlogPage';
+//import CategoryPage from './Lesson7/Afternoon/pages/CategoryPage';
+//import ProductPage from './Lesson7/Afternoon/pages/ProductPage';
+//import CustomerPage from './Lesson7/Afternoon/pages/CustomerPage';
+//import { Route, BrowserRouter, Routes } from 'react-router';
+//import LoginPage from './Lesson7/Afternoon/pages/LoginPage';
+
+//function App() {
+//  return (
+//    <BrowserRouter>
+//      <Header />
+//      <Routes>
+//        <Route path="/" element={<HomePage />} />
+//        <Route path="/blog" element={<BlogPage />} />
+//        <Route path="/category" element={<CategoryPage />} />
+//        <Route path="/product" element={<ProductPage />} />
+//        <Route path="/login" element={<LoginPage />} />
+//        <Route path="/customer" element={<CustomerPage />} />
+//      </Routes>
+//    </BrowserRouter>
+//  );
+//}
+
+//export default App;
+
+import Sidebar from "./Lesson7/Homework/components/Sidebar";
+import DepartmentPage from "./Lesson7/Homework/pages/DepartmentsPage";
+import HistoryPage from "./Lesson7/Homework/pages/HistoryPage";
+import { Route, BrowserRouter, Routes } from "react-router";
+import MapPage from "./Lesson7/Homework/pages/MapPage";
+import OverviewPage from "./Lesson7/Homework/pages/OverviewPage";
+import PatientsPage from "./Lesson7/Homework/pages/PatientsPage";
+import SettingsPage from "./Lesson7/Homework/pages/SettingsPage";
+import DoctorsPage from "./Lesson7/Homework/pages/DoctorsPage";
+
+function App() {
   return (
-    <div>
-      {/*<Customer />*/}
-      <AppWeather />
-    </div>
-  )
+    <BrowserRouter>
+      <div className="flex h-screen bg-gray-50">
+        <Sidebar />
+        <div className="flex-1 flex flex-col">
+          {/* Header */}
+          <header className="bg-white border-b border-gray-200 px-6 py-4 flex items-center justify-between">
+            {/* Search Bar */}
+            <div className="flex-1 max-w-md">
+              <div className="relative">
+                <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                  <svg
+                    className="h-5 w-5 text-gray-400"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+                    />
+                  </svg>
+                </div>
+                <input
+                  type="text"
+                  placeholder="Search..."
+                  className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none text-gray-700 placeholder-gray-500"
+                />
+              </div>
+            </div>
+
+            {/* Right Side - Notification & Profile */}
+            <div className="flex items-center space-x-4">
+              {/* Notification Icon */}
+              <button className="relative p-2 text-gray-600 hover:text-gray-800 hover:bg-gray-100 rounded-lg transition-colors">
+                <svg
+                  className="h-6 w-6"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V4a2 2 0 10-4 0v1.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h16zM13.73 21a2 2 0 01-3.46 0"
+                  />
+                </svg>
+              </button>
+
+              {/* User Profile */}
+              <div className="flex items-center space-x-3">
+                <div className="w-10 h-10 bg-gray-300 rounded-full flex items-center justify-center"></div>
+                <div className="hidden sm:block">
+                  <p className="text-sm font-medium text-gray-900">Emma Kwan</p>
+                </div>
+              </div>
+            </div>
+          </header>
+
+          {/* Main Content */}
+          <main className="flex-1 overflow-y-auto">
+            <Routes>
+              <Route path="/" element={<PatientsPage />} />
+              <Route path="/department" element={<DepartmentPage />} />
+              <Route path="/patients" element={<PatientsPage />} />
+              <Route path="/overview" element={<OverviewPage />} />
+              <Route path="/map" element={<MapPage />} />
+              <Route path="/doctors" element={<DoctorsPage />} />
+              <Route path="/history" element={<HistoryPage />} />
+              <Route path="/settings" element={<SettingsPage />} />
+            </Routes>
+          </main>
+        </div>
+      </div>
+    </BrowserRouter>
+  );
 }
+
+export default App;
