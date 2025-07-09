@@ -1,8 +1,7 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import styles from './Ex1_ButtonClick.module.css';
 
-type Props = {};
-export default function Ex2_InputFieldTracker({}: Props) {
+export default function Ex2_InputFieldTracker() {
   const [text, setText] = useState('Hello World!');
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
