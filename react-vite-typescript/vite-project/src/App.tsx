@@ -28,6 +28,8 @@
 //import Calculator from "./Lesson5/homework/Calculator/Calculator";
 //import RegistrationForm from "./Lesson5/homework/RegistrationForm/RegistrationForm";
 
+import TasksManagementGuidelines from "./Lesson9";
+
 
 //function App() {
 //  return (
@@ -304,77 +306,80 @@
 //}
 
 
-import LoginForm from "./Lesson8/Afternoon/Lab3/LoginForm";
-import AuthPage from "./Lesson8/Afternoon/Lab1/Pages/AuthPage";
-import RegisterForm from "./Lesson8/Afternoon/Lab2/RegisterForm";
+//import LoginForm from "./Lesson8/Afternoon/Lab3/LoginForm";
+//import AuthPage from "./Lesson8/Afternoon/Lab1/Pages/AuthPage";
+//import RegisterForm from "./Lesson8/Afternoon/Lab2/RegisterForm";
 
-function App() {
-  return (
-    <div style={{ fontFamily: "Arial, sans-serif", backgroundColor: "#f9f9f9", minHeight: "100vh", padding: "40px" }}>
+//function App() {
+//  return (
+//    <div style={{ fontFamily: "Arial, sans-serif", backgroundColor: "#f9f9f9", minHeight: "100vh", padding: "40px" }}>
       
-      {/* Lab 1 Section */}
-      <div className="mb-8">
-        <h2 className="text-2xl font-semibold mb-4 text-center text-gray-700">Lab 1 - Auth Page</h2>
-        <AuthPage />
-      </div>
+//      {/* Lab 1 Section */}
+//      <div className="mb-8">
+//        <h2 className="text-2xl font-semibold mb-4 text-center text-gray-700">Lab 1 - Auth Page</h2>
+//        <AuthPage />
+//      </div>
 
-      {/* Lab 2 Section */}
-      <div className="mb-8">
-        <h2 className="text-2xl font-semibold mb-4 text-center text-gray-700">Lab 2 - Register Form</h2>
-        <RegisterForm />
-      </div>
+//      {/* Lab 2 Section */}
+//      <div className="mb-8">
+//        <h2 className="text-2xl font-semibold mb-4 text-center text-gray-700">Lab 2 - Register Form</h2>
+//        <RegisterForm />
+//      </div>
 
-      {/* Lab 3 Section */}
-      <div className="mb-8">
-        <h2 className="text-2xl font-semibold mb-4 text-center text-gray-700">Lab 3 - Đăng nhập hệ thống</h2>
-        <div className="min-h-screen flex flex-col md:flex-row shadow-lg rounded-lg overflow-hidden">
-          {/* Left: Image */}
-          <div className="w-full md:w-1/2 h-64 md:h-auto relative">
-            <img
-              src="/images/lab3.PNG"
-              alt="Login Illustration"
-              className="w-full h-full object-cover"
-            />
-            {/* Text overlay ở phần trên cùng của ảnh */}
-            <div className="absolute top-0 left-0 right-0 p-4 md:p-6">
-              <div className="text-left">
-                <h1 className="text-xl md:text-3xl font-bold leading-tight text-gray-800">
-                  Set Your Partner
-                  <br />
-                  Recruitment on <span className="text-blue-600">Auto-Pilot</span>
-                </h1>
-              </div>
-            </div>
-          </div>
+//      {/* Lab 3 Section */}
+//      <div className="mb-8">
+//        <h2 className="text-2xl font-semibold mb-4 text-center text-gray-700">Lab 3 - Đăng nhập hệ thống</h2>
+//        <div className="min-h-screen flex flex-col md:flex-row shadow-lg rounded-lg overflow-hidden">
+//          {/* Left: Image */}
+//          <div className="w-full md:w-1/2 h-64 md:h-auto relative">
+//            <img
+//              src="/images/lab3.PNG"
+//              alt="Login Illustration"
+//              className="w-full h-full object-cover"
+//            />
+//            {/* Text overlay ở phần trên cùng của ảnh */}
+//            <div className="absolute top-0 left-0 right-0 p-4 md:p-6">
+//              <div className="text-left">
+//                <h1 className="text-xl md:text-3xl font-bold leading-tight text-gray-800">
+//                  Set Your Partner
+//                  <br />
+//                  Recruitment on <span className="text-blue-600">Auto-Pilot</span>
+//                </h1>
+//              </div>
+//            </div>
+//          </div>
 
-          {/* Right: Form */}
-          <div className="w-full md:w-1/2 flex items-center justify-center bg-white px-4 py-8">
-            <div className="max-w-sm w-full">
-              {/* Wrap LoginForm để ẩn phần tiêu đề bị lệch */}
-              <div className="[&>div:first-child]:hidden">
-                <LoginForm />
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  );
-}
+//          {/* Right: Form */}
+//          <div className="w-full md:w-1/2 flex items-center justify-center bg-white px-4 py-8">
+//            <div className="max-w-sm w-full">
+//              {/* Wrap LoginForm để ẩn phần tiêu đề bị lệch */}
+//              <div className="[&>div:first-child]:hidden">
+//                <LoginForm />
+//              </div>
+//            </div>
+//          </div>
+//        </div>
+//      </div>
+//    </div>
+//  );
+//}
 
-export default App;
+//export default App;
 
 
 
 //import Registration from "./Lesson8/Homework/RegistrationForm"
 
-//function App() {
-//  return (
-//   <div>
-//      {/*<Registration />*/}
-      
-//   </div>
-//  );
-//}
 
-//export default App;
+
+function App() {
+  return (
+   <div>
+      {/*<Registration />*/}
+      <TasksManagementGuidelines />
+      
+   </div>
+  );
+}
+
+export default App;
