@@ -56,7 +56,6 @@ export default function MyTasksPage() {
 
   return (
     <div className="p-6 bg-white rounded-lg shadow-md max-w-7xl mx-auto">
-
       <div className="overflow-x-auto rounded-md border border-gray-200">
         <table className="min-w-full text-sm text-left text-gray-600">
           <thead className="bg-blue-100 text-xs text-blue-800 uppercase tracking-wide">
@@ -100,7 +99,11 @@ export default function MyTasksPage() {
                   <td className="px-4 py-3">{task.assignee_id}</td>
                   <td className="px-4 py-3 text-center">
                     <button
-                      onClick={() => handleEdit(task.id)}
+                      onClick={() => {
+                        if (typeof task.id === "number") {
+                          handleEdit(task.id);
+                        }
+                      }}
                       className="inline-flex items-center gap-1 text-sm text-blue-600 hover:text-blue-800 font-medium"
                     >
                       <FiEdit className="text-base" />

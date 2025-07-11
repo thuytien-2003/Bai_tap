@@ -1,9 +1,9 @@
-import React from 'react';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
 import { useForm, type SubmitHandler } from 'react-hook-form';
 import { createTask } from '../services';
 import { useNavigate } from 'react-router';
+import type { Task } from '../types';
 
 interface IFormInput {
   title: string;
@@ -12,7 +12,7 @@ interface IFormInput {
   description?: string;
   status: 'to_do' | 'in_progress' | 'done';
   priority: 'low' | 'medium' | 'high';
-  assignee_id?: string;
+  assignee_id?: number | null;
 }
 
 const schema: yup.ObjectSchema<IFormInput> = yup.object({
@@ -35,14 +35,15 @@ const schema: yup.ObjectSchema<IFormInput> = yup.object({
   priority: yup.mixed<'low' | 'medium' | 'high'>().required(),
   assignee_id: yup
     .number()
-    .transform((value, originalValue) => (originalValue === '' ? undefined : value))
+    .transform((value, originalValue) => (originalValue === '' ? null : value))
     .nullable()
     .min(1, 'Must be positive')
-    .typeError('Must be a number'),
+    .typeError('Assignee ID must be a number'),
 });
 
 export default function CreateTaskPage() {
   const navigate = useNavigate();
+
   const {
     register,
     handleSubmit,
@@ -56,14 +57,25 @@ export default function CreateTaskPage() {
       description: '',
       status: 'to_do',
       priority: 'medium',
-      assignee_id: '',
+      assignee_id: null,
     },
     mode: 'onChange',
   });
 
-  const onSubmit: SubmitHandler<IFormInput> = async (data: any) => {
+  const onSubmit: SubmitHandler<IFormInput> = async (formData) => {
+    const now = new Date();
+
+    const fullData: Task = {
+      ...formData,
+      start_date: new Date(formData.start_date),
+      due_date: formData.due_date ? new Date(formData.due_date) : undefined,
+      created_time: now,
+      updated_time: now,
+      assignee_id: formData.assignee_id ?? undefined, // ✅ convert null → undefined
+    };
+
     try {
-      await createTask(data);
+      await createTask(fullData);
       navigate('/tasks');
     } catch (error) {
       console.error('Error creating task:', error);
@@ -160,7 +172,7 @@ export default function CreateTaskPage() {
           <label htmlFor="assignee_id" className="block text-sm font-medium text-gray-700 mb-1">Assignee ID</label>
           <input
             {...register('assignee_id')}
-            type="text"
+            type="number"
             id="assignee_id"
             className="w-full border border-gray-300 rounded-md px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-400"
           />

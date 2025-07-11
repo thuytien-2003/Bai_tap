@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import { useContext, useState } from 'react';
 import AuthContext from '../context';
 import { useNavigate } from 'react-router';
 import { useForm, type SubmitHandler } from 'react-hook-form';
@@ -21,6 +21,7 @@ const schema = yup
 export default function LoginPage() {
   const { setUser } = useContext(AuthContext);
   const navigate = useNavigate();
+  const [showPassword, setShowPassword] = useState(false);
 
   const {
     register,
@@ -46,7 +47,7 @@ export default function LoginPage() {
       setUser(authenticatedUser);
       localStorage.setItem('user', JSON.stringify(authenticatedUser));
       localStorage.setItem('access_token', result.access_token);
-      window.location.href = '/tasks';
+      navigate('/tasks'); // ✅ dùng navigate thay vì window.location.href
     } catch (error) {
       alert('Login failed. Please check your credentials.');
       console.error('Login error:', error);
@@ -70,9 +71,7 @@ export default function LoginPage() {
               id="username"
               placeholder="Enter your email"
               className={`w-full px-4 py-2 border rounded-md text-sm shadow-sm focus:outline-none focus:ring-2 ${
-                errors.username
-                  ? 'border-red-500 focus:ring-red-300'
-                  : 'border-gray-300 focus:ring-blue-300'
+                errors.username ? 'border-red-500 focus:ring-red-300' : 'border-gray-300 focus:ring-blue-300'
               }`}
             />
             {errors.username && (
@@ -80,22 +79,29 @@ export default function LoginPage() {
             )}
           </div>
 
-          {/* Password */}
+          {/* Password with toggle */}
           <div>
             <label htmlFor="password" className="block text-sm font-medium text-gray-700 mb-1">
               Password
             </label>
-            <input
-              {...register('password')}
-              type="password"
-              id="password"
-              placeholder="Enter your password"
-              className={`w-full px-4 py-2 border rounded-md text-sm shadow-sm focus:outline-none focus:ring-2 ${
-                errors.password
-                  ? 'border-red-500 focus:ring-red-300'
-                  : 'border-gray-300 focus:ring-blue-300'
-              }`}
-            />
+            <div className="relative">
+              <input
+                {...register('password')}
+                type={showPassword ? 'text' : 'password'}
+                id="password"
+                placeholder="Enter your password"
+                className={`w-full px-4 py-2 pr-10 border rounded-md text-sm shadow-sm focus:outline-none focus:ring-2 ${
+                  errors.password ? 'border-red-500 focus:ring-red-300' : 'border-gray-300 focus:ring-blue-300'
+                }`}
+              />
+              <button
+                type="button"
+                onClick={() => setShowPassword(!showPassword)}
+                className="absolute inset-y-0 right-2 flex items-center text-sm text-gray-500"
+              >
+                {showPassword ? '🙈' : '👁'}
+              </button>
+            </div>
             {errors.password && (
               <p className="text-sm text-red-500 mt-1">{errors.password.message}</p>
             )}

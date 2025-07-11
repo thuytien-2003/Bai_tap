@@ -10,8 +10,8 @@ export interface UserInfo {
 }
 
 const AuthPage: React.FC = () => {
-  const [email, setEmail] = useState("jane.doe@gmail.com");
-  const [name, setName] = useState("Jane Doe");
+  const [email] = useState("jane.doe@gmail.com");
+  const [name] = useState("Jane Doe");
 
   return (
     <div className="min-h-screen  flex items-center justify-center bg-pink-200 overflow-x-auto">

@@ -28,7 +28,7 @@
 //import Calculator from "./Lesson5/homework/Calculator/Calculator";
 //import RegistrationForm from "./Lesson5/homework/RegistrationForm/RegistrationForm";
 
-import TasksManagementGuidelines from "./Lesson9";
+
 
 
 //function App() {
@@ -369,7 +369,7 @@ import TasksManagementGuidelines from "./Lesson9";
 
 
 //import Registration from "./Lesson8/Homework/RegistrationForm"
-
+import TasksManagementGuidelines from "./Lesson9";
 
 
 function App() {

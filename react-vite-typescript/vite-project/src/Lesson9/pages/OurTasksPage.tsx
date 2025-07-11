@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import AuthContext from "../context";
 import { getTasks } from "../services";
 import type { Task } from "../types";
@@ -35,7 +35,7 @@ const getPriorityColor = (priority: string) => {
 };
 
 export default function OurTasksPage() {
-  const { user } = useContext(AuthContext);
+  useContext(AuthContext);
   const navigate = useNavigate();
 
   const [tasks, setTasks] = useState<Task[]>([]);
@@ -103,14 +103,12 @@ export default function OurTasksPage() {
                   <td className="px-4 py-3 font-semibold text-gray-800">{task.title}</td>
                   <td className="px-4 py-3">{task.description}</td>
 
-                  {/* Status có màu */}
                   <td className="px-4 py-3 capitalize">
                     <span className={`px-2 py-1 text-xs font-semibold rounded-full ${getStatusColor(task.status)}`}>
                       {task.status.replace(/_/g, " ")}
                     </span>
                   </td>
 
-                  {/* Priority có màu */}
                   <td className="px-4 py-3 capitalize">
                     <span className={`px-2 py-1 text-xs font-semibold rounded-full ${getPriorityColor(task.priority)}`}>
                       {task.priority}
@@ -123,7 +121,9 @@ export default function OurTasksPage() {
                   <td className="px-4 py-3">{task.assignee_id}</td>
                   <td className="px-4 py-3 text-center">
                     <button
-                      onClick={() => handleOnEdit(task.id)}
+                      onClick={() => {
+                        if (typeof task.id === "number") handleOnEdit(task.id);
+                      }}
                       className="inline-flex items-center gap-1 text-sm text-blue-600 hover:text-blue-800 font-medium"
                     >
                       <FiEdit className="text-base" />

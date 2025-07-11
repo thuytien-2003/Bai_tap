@@ -14,7 +14,6 @@ export default function SearchTasks({ onSearch }: Props) {
   const {
     register,
     handleSubmit,
-    formState: { errors },
   } = useForm<IFormInput>({
     defaultValues: {
       status: "",
