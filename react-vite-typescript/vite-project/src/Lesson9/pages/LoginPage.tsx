@@ -1,6 +1,5 @@
 import { useContext, useState } from 'react';
 import AuthContext from '../context';
-import { useNavigate } from 'react-router';
 import { useForm, type SubmitHandler } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
@@ -20,7 +19,6 @@ const schema = yup
 
 export default function LoginPage() {
   const { setUser } = useContext(AuthContext);
-  const navigate = useNavigate();
   const [showPassword, setShowPassword] = useState(false);
 
   const {
@@ -47,7 +45,7 @@ export default function LoginPage() {
       setUser(authenticatedUser);
       localStorage.setItem('user', JSON.stringify(authenticatedUser));
       localStorage.setItem('access_token', result.access_token);
-      navigate('/tasks'); // ✅ dùng navigate thay vì window.location.href
+      window.location.href = '/tasks';
     } catch (error) {
       alert('Login failed. Please check your credentials.');
       console.error('Login error:', error);
