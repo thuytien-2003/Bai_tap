@@ -82,7 +82,7 @@ export default function SearchTasks({ onSearch }: Props) {
         <div className="ml-auto mr-20">
           <button
             type="submit"
-            className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-md text-sm font-semibold transition flex items-center gap-2"
+            className="bg-pink-500 hover:bg-pink-600 text-white px-4 py-2 rounded-md text-sm font-semibold transition flex items-center gap-2"
           >
             <FiSearch className="text-lg" />
             Search

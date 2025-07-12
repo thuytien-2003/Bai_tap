@@ -5,7 +5,7 @@ import {
   Route,
   NavLink,
   useLocation,
-} from "react-router"; // sửa react-router-dom
+} from "react-router"; 
 import LoginPage from "./pages/LoginPage";
 import OurTasksPage from "./pages/OurTasksPage";
 import MyTasksPage from "./pages/MyTasksPage";
@@ -14,6 +14,8 @@ import UpdateTaskPage from "./pages/UpdateTaskPage";
 import AccessDeniedPage from "./pages/AccessDeniedPage";
 import AuthContext from "./context";
 import type { User } from "./types";
+import { ClipboardList } from "lucide-react";
+import { IoIosLogOut } from "react-icons/io";
 
 function AppLayout({
   user,
@@ -28,16 +30,19 @@ function AppLayout({
   return (
     <div className="min-h-screen bg-gray-100">
       {!hideNav && (
-        <header className="bg-white shadow-md fixed top-0 left-0 right-0 z-10">
+        <header className="bg-pink-500 shadow-md fixed top-0 left-0 right-0 z-10">
           <div className="container mx-auto px-4 py-4 flex justify-between items-center">
             {/* LEFT: Title + chào */}
             <div>
-              <h1 className="text-xl font-bold text-blue-600">
-                📝 Tasks Manager Guidelines
+              <h1 className="text-xl font-bold text-white flex items-center gap-2">
+                <ClipboardList className="text-white" />
+                Tasks Manager Guidelines
               </h1>
+
               {user && (
-                <p className="text-gray-600 text-sm">
-                  Hi, <span className="font-semibold">{user.email}</span>
+                <p className="text-pink-100 text-sm">
+                  Welcome Back!{" "}
+                  <span className="font-semibold">{user.email}</span>
                 </p>
               )}
             </div>
@@ -47,10 +52,10 @@ function AppLayout({
               <NavLink
                 to="/tasks"
                 className={({ isActive }) =>
-                  `hover:text-blue-700 font-medium ${
+                  `hover:text-white font-medium ${
                     isActive
-                      ? "text-blue-600 font-bold underline"
-                      : "text-gray-700"
+                      ? "text-white font-bold underline"
+                      : "text-pink-100"
                   }`
                 }
               >
@@ -59,10 +64,10 @@ function AppLayout({
               <NavLink
                 to="/assignee-me"
                 className={({ isActive }) =>
-                  `hover:text-blue-700 font-medium ${
+                  `hover:text-white font-medium ${
                     isActive
-                      ? "text-blue-600 font-bold underline"
-                      : "text-gray-700"
+                      ? "text-white font-bold underline"
+                      : "text-pink-100"
                   }`
                 }
               >
@@ -71,10 +76,10 @@ function AppLayout({
               <NavLink
                 to="/create-task"
                 className={({ isActive }) =>
-                  `hover:text-blue-700 font-medium ${
+                  `hover:text-white font-medium ${
                     isActive
-                      ? "text-blue-600 font-bold underline"
-                      : "text-gray-700"
+                      ? "text-white font-bold underline"
+                      : "text-pink-100"
                   }`
                 }
               >
@@ -83,8 +88,9 @@ function AppLayout({
               {user && (
                 <button
                   onClick={handleLogout}
-                  className="text-red-500 hover:text-red-700 font-medium"
+                  className="inline-flex items-center gap-1 text-yellow-200 hover:text-white font-medium"
                 >
+                  <IoIosLogOut className="text-base" />
                   Logout
                 </button>
               )}
