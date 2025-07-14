@@ -10,7 +10,6 @@ export default function App() {
   return (
     <CartProvider>
       <Router>
-        {/* Navigation */}
         <header className="bg-white shadow-md sticky top-0 z-10">
           <div className="container mx-auto px-4 py-4 flex gap-4 items-center">
             <h1 className="flex items-center gap-2 text-xl font-bold text-gray-800"><RiShoppingBag3Line />My Cart App</h1>
@@ -25,7 +24,7 @@ export default function App() {
           </div>
         </header>
 
-        {/* Main Content */}
+       
         <main className="container mx-auto px-4 py-6">
           <Routes>
             <Route path="/" element={<ProductList />} />
