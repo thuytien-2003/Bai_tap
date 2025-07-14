@@ -28,9 +28,6 @@
 //import Calculator from "./Lesson5/homework/Calculator/Calculator";
 //import RegistrationForm from "./Lesson5/homework/RegistrationForm/RegistrationForm";
 
-
-
-
 //function App() {
 //  return (
 //    <div>
@@ -282,7 +279,6 @@
 
 //import { useState } from 'react';
 
-
 //import SignUpForm from './Lesson8/Afternoon/Lab1/SignUpForm';
 //import StartForm from './Lesson8/Afternoon/Lab1/StartForm';
 //import LoginForm from './Lesson8/Afternoon/Lab1/Login';
@@ -305,7 +301,6 @@
 //  );
 //}
 
-
 //import LoginForm from "./Lesson8/Afternoon/Lab3/LoginForm";
 //import AuthPage from "./Lesson8/Afternoon/Lab1/Pages/AuthPage";
 //import RegisterForm from "./Lesson8/Afternoon/Lab2/RegisterForm";
@@ -313,7 +308,7 @@
 //function App() {
 //  return (
 //    <div style={{ fontFamily: "Arial, sans-serif", backgroundColor: "#f9f9f9", minHeight: "100vh", padding: "40px" }}>
-      
+
 //      {/* Lab 1 Section */}
 //      <div className="mb-8">
 //        <h2 className="text-2xl font-semibold mb-4 text-center text-gray-700">Lab 1 - Auth Page</h2>
@@ -366,20 +361,42 @@
 
 //export default App;
 
-
-
 //import Registration from "./Lesson8/Homework/RegistrationForm"
-import TasksManagementGuidelines from "./Lesson9";
+//import TasksManagementGuidelines from "./Lesson9";
 
+//function App() {
+//  return (
+//   <div>
+//      {/*<Registration />*/}
+//      <TasksManagementGuidelines />
 
-function App() {
-  return (
-   <div>
-      {/*<Registration />*/}
-      <TasksManagementGuidelines />
-      
-   </div>
-  );
-}
+//   </div>
+//  );
+//}
 
-export default App;
+//export default App;
+
+//import { BrowserRouter, Link, Route, Routes } from "react-router";
+//import { ThemeProvider } from "./Demo_test/context/ThemeContext";
+//import Home from "./Demo_test/pages/Home";
+//import About from "./Demo_test/pages/About";
+
+//function App() {
+//  return (
+//    <BrowserRouter>
+//      <ThemeProvider>
+//        <nav className="mb-4 space-x-4">
+//          <Link to="/">Home</Link>
+//          <Link to="/about">About</Link>
+//        </nav>
+
+//        <Routes>
+//          <Route path="/" element={<Home />} />
+//          <Route path="/about" element={<About />} />
+//        </Routes>
+//      </ThemeProvider>
+//    </BrowserRouter>
+//  );
+//}
+
+//export default App;
