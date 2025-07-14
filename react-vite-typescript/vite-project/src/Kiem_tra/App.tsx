@@ -24,6 +24,10 @@ export default function App() {
           </div>
         </header>
 
+<<<<<<< HEAD
+=======
+       
+>>>>>>> b4a237672936d9594a2ab97abaae5a6c6f577d07
         <main className="container mx-auto px-4 py-6">
           <Routes>
             <Route path="/" element={<ProductList />} />
