@@ -1,4 +1,8 @@
 /* eslint-disable @next/next/no-img-element */
+"use client";
+
+import { useEffect, useState } from "react";
+import { useParams } from "next/navigation";
 import Link from "next/link";
 import { BsTicketDetailed } from "react-icons/bs";
 
@@ -15,20 +19,25 @@ interface Product {
   };
 }
 
-async function getProduct(id: string): Promise<Product> {
-  const res = await fetch(`https://api.escuelajs.co/api/v1/products/${id}`, {
-    next: { revalidate: 10 }, // ISR: tái tạo sau 10 giây
-  });
+export default function TaskISRPage() {
+  const params = useParams();
+  const id = params.id as string;
 
-  return res.json();
-}
+  const [product, setProduct] = useState<Product | null>(null);
 
-export default async function TaskISRPage({
-  params,
-}: {
-  params: { id: string };
-}) {
-  const product = await getProduct(params.id);
+  useEffect(() => {
+    const fetchProduct = async () => {
+      const res = await fetch(`https://api.escuelajs.co/api/v1/products/${id}`);
+      const data = await res.json();
+      setProduct(data);
+    };
+
+    if (id) fetchProduct();
+  }, [id]);
+
+  if (!product) {
+    return <div className="p-8 text-center">Loading...</div>;
+  }
 
   return (
     <main className="min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-100 via-pink-100 to-yellow-100">
@@ -41,8 +50,9 @@ export default async function TaskISRPage({
         </Link>
 
         <h1 className="flex items-center gap-2 text-2xl font-extrabold mb-6 text-blue-600 text-center tracking-tight drop-shadow">
-          <BsTicketDetailed /> Product Detail (ISR)
+          <BsTicketDetailed /> Product Detail (Client)
         </h1>
+
         <div className="bg-gray-50 rounded-lg border border-gray-200 p-4 hover:bg-gray-100 transition">
           <img
             src={product.images[0]}
@@ -55,13 +65,9 @@ export default async function TaskISRPage({
               alt={product.category.name}
               className="w-7 h-7 rounded-full border"
             />
-            <span className="text-gray-600 text-sm">
-              {product.category.name}
-            </span>
+            <span className="text-gray-600 text-sm">{product.category.name}</span>
           </div>
-          <p className="font-bold text-lg text-gray-800 mb-1">
-            {product.title}
-          </p>
+          <p className="font-bold text-lg text-gray-800 mb-1">{product.title}</p>
           <span className="inline-block mb-2 bg-blue-500 text-white px-3 py-1 rounded-full text-sm font-semibold shadow">
             ${product.price}
           </span>
