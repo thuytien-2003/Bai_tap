@@ -6,6 +6,7 @@ import { devtools, persist } from 'zustand/middleware';
 import { apiClient } from '../libraries/api-client';
 
 export interface LoggedInUser {
+  [x: string]: ReactNode;
   id: string | number;
   email: string;
   isActive: boolean;

@@ -2,19 +2,16 @@
 
 import { useForm } from 'react-hook-form';
 import * as yup from 'yup';
-
 import { yupResolver } from '@hookform/resolvers/yup';
-import { useAuthStore } from '../TasksManagementWithZustand/useAuthStore';
 import { useNavigate } from 'react-router';
 import { useEffect } from 'react';
+import { useAuthStore } from '../TasksManagementWithZustand/useAuthStore';
 
-// Strong typed interface for form data
 interface IFormInput {
   username: string;
   password: string;
 }
 
-// Yup validation schema with strong typing
 const validationSchema: yup.ObjectSchema<IFormInput> = yup.object({
   username: yup
     .string()
@@ -31,8 +28,7 @@ const validationSchema: yup.ObjectSchema<IFormInput> = yup.object({
 
 export default function Login() {
   const navigate = useNavigate();
-  const { login, error, loggedInUser  } = useAuthStore((state) => state);
-
+  const { login, error, loggedInUser } = useAuthStore((state) => state);
 
   useEffect(() => {
     if (loggedInUser) {
@@ -46,10 +42,10 @@ export default function Login() {
     formState: { errors, isSubmitting, isValid, dirtyFields },
   } = useForm<IFormInput>({
     resolver: yupResolver(validationSchema),
-    mode: 'onChange', // Validate on change for better UX
+    mode: 'onChange',
     defaultValues: {
       username: 'tungnt@softech.vn',
-      password: '123456789', // Example default value
+      password: '123456789',
     },
   });
 
@@ -61,71 +57,93 @@ export default function Login() {
     });
   };
 
-  console.log('Login error:', error);
-
   return (
-    <div className="flex justify-center items-center min-h-screen bg-gray-100">
-      <form onSubmit={handleSubmit(onSubmit)} className="bg-white p-8 rounded-lg shadow-lg w-96">
-        <h2 className="text-2xl font-semibold text-center mb-6">Login with Zustand</h2>
+    <div className="bg-gray-50 px-6 pt-32 flex justify-center">
+      <form
+        onSubmit={handleSubmit(onSubmit)}
+        className="bg-white border border-gray-200 rounded-lg shadow-lg w-full max-w-md p-10 space-y-8"
+      >
+        <h2 className="text-4xl font-extrabold text-blue-900 text-center mb-6">
+          Welcome Back
+        </h2>
 
-        <div className="mb-4">
-          <label htmlFor="username" className="block text-sm font-medium text-gray-700">
-            Username
-          </label>
-          <input
-            id="username"
-            type="text"
-            {...register('username')}
-            className={`w-full mt-2 p-2 border rounded-md focus:outline-none focus:ring-2 transition-colors ${
-              errors.username
-                ? 'border-red-500 focus:border-red-500 focus:ring-red-200'
-                : !errors.username && dirtyFields.username
-                ? 'border-green-500 focus:border-green-500 focus:ring-green-200'
-                : 'border-gray-300 focus:border-blue-500 focus:ring-blue-200'
-            }`}
-            placeholder="Enter your username"
-          />
-          {errors.username && <p className="text-red-500 text-xs mt-1">{errors.username.message}</p>}
-        </div>
+        <div className="space-y-6">
+          <div>
+            <label htmlFor="username" className="block mb-2 text-sm font-semibold text-gray-700">
+              Email Address
+            </label>
+            <input
+              id="username"
+              type="email"
+              placeholder="you@example.com"
+              {...register('username')}
+              className={`w-full px-5 py-3 rounded-md border border-gray-300 text-gray-800 transition focus:outline-none focus:ring-3 focus:ring-blue-600 ${
+                errors.username
+                  ? 'border-red-500 focus:ring-red-400'
+                  : dirtyFields.username
+                  ? 'border-green-500 focus:ring-green-400'
+                  : ''
+              }`}
+            />
+            {errors.username && (
+              <p className="mt-1 text-xs text-red-600">{errors.username.message}</p>
+            )}
+          </div>
 
-        <div className="mb-6">
-          <label htmlFor="password" className="block text-sm font-medium text-gray-700">
-            Password
-          </label>
-          <input
-            id="password"
-            type="password"
-            {...register('password')}
-            className={`w-full mt-2 p-2 border rounded-md focus:outline-none focus:ring-2 transition-colors ${
-              errors.password
-                ? 'border-red-500 focus:border-red-500 focus:ring-red-200'
-                : !errors.password && dirtyFields.password
-                ? 'border-green-500 focus:border-green-500 focus:ring-green-200'
-                : 'border-gray-300 focus:border-blue-500 focus:ring-blue-200'
-            }`}
-            placeholder="Enter your password"
-          />
-          {errors.password && <p className="text-red-500 text-xs mt-1">{errors.password.message}</p>}
+          <div>
+            <label htmlFor="password" className="block mb-2 text-sm font-semibold text-gray-700">
+              Password
+            </label>
+            <input
+              id="password"
+              type="password"
+              placeholder="••••••••"
+              {...register('password')}
+              className={`w-full px-5 py-3 rounded-md border border-gray-300 text-gray-800 transition focus:outline-none focus:ring-3 focus:ring-blue-600 ${
+                errors.password
+                  ? 'border-red-500 focus:ring-red-400'
+                  : dirtyFields.password
+                  ? 'border-green-500 focus:ring-green-400'
+                  : ''
+              }`}
+            />
+            {errors.password && (
+              <p className="mt-1 text-xs text-red-600">{errors.password.message}</p>
+            )}
+          </div>
         </div>
 
         <button
           type="submit"
           disabled={isSubmitting || !isValid}
-          className={`w-full py-2 rounded-md font-medium transition-colors ${
-            isSubmitting || !isValid ? 'bg-gray-400 cursor-not-allowed' : 'bg-blue-500 hover:bg-blue-600 text-white'
+          className={`w-full py-4 rounded-md font-bold text-white transition duration-300 ${
+            isSubmitting || !isValid
+              ? 'bg-gray-400 cursor-not-allowed'
+              : 'bg-gradient-to-r from-blue-600 to-green-500 hover:from-blue-700 hover:to-green-600'
           }`}
         >
           {isSubmitting ? 'Logging in...' : 'Login'}
         </button>
 
-        {/* Form validation status indicator */}
-        <div className="mt-4 text-center">
-          <p className={`text-xs ${isValid ? 'text-green-500' : 'text-red-500'}`}>
-            {isValid ? 'Form is valid ✓' : 'Please fill in all required fields correctly'}
+        <div className="text-center mt-6 text-sm space-y-2">
+          <p
+            className={`font-semibold ${
+              isValid ? 'text-green-700 flex items-center justify-center gap-1' : 'text-red-600 flex items-center justify-center gap-1'
+            }`}
+          >
+            {isValid ? (
+              <>
+                <span>✓</span> Form is valid
+              </>
+            ) : (
+              <>
+                <span>✗</span> Please fix errors
+              </>
+            )}
           </p>
           {error && (
-            <p className="text-red-500 text-xs mt-1">
-              <span>Login failed</span>
+            <p className="text-red-600 text-xs font-semibold mt-1">
+              ⚠️ Login failed. Check your credentials.
             </p>
           )}
         </div>
